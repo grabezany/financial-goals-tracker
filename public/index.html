@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Goals Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Login Page -->
+  <div id="loginPage" class="login-page active">
+    <div class="login-box">
+      <h2>Welcome</h2>
+      <p>Please register or log in to continue</p>
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="register()">Register</button>
+      <button onclick="login()">Login</button>
+      <p id="accountStatus"></p>
+    </div>
+  </div>
+
+  <!-- Main App (hidden until login) -->
+  <div id="app" class="app hidden">
+    <header>
+      <h1>Financial Goals Tracker</h1>
+    </header>
+
+    <main>
+      <section id="goals" class="section active">
+        <div id="goalList"></div>
+      </section>
+
+      <section id="addgoal" class="section">
+        <div class="goal-form">
+          <h2>Add a New Goal</h2>
+          <input type="text" id="goalName" placeholder="Goal name">
+          <input type="number" id="goalTarget" placeholder="Target amount">
+          <button onclick="addGoal()">Add Goal</button>
+        </div>
+      </section>
+
+      <section id="reports" class="section"></section>
+
+      <section id="settings" class="section">
+        <div class="settings-option">
+          <h3>Appearance</h3>
+          <label class="switch">
+            <input type="checkbox" id="modeSwitch" onclick="toggleMode()">
+            <span class="slider"></span>
+          </label>
+          <p>Toggle between Light and Dark mode</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="navbar">
+      <button id="nav-goals" class="active" onclick="showSection('goals')">Goals</button>
+      <button id="nav-addgoal" onclick="showSection('addgoal')">Add Goal</button>
+      <button id="nav-reports" onclick="showSection('reports')">Reports</button>
+      <button id="nav-settings" onclick="showSection('settings')">Settings</button>
+      <div class="nav-indicator"></div>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
