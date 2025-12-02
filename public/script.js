@@ -262,34 +262,38 @@ function drawLineChart(canvasId, history, target) {
 async function register() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+
   const res = await fetch('/register', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
   });
+
   const msg = await res.text();
   document.getElementById('accountStatus').innerText = msg;
 
   if (msg.toLowerCase().includes("success")) {
-    unlockApp();
-    showSection('goals');
+    unlockApp();          // hide login page, show app
+    showSection('goals'); // go straight to Goals tab
   }
 }
 
 async function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+
   const res = await fetch('/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
   });
+
   const msg = await res.text();
   document.getElementById('accountStatus').innerText = msg;
 
   if (msg.toLowerCase().includes("success")) {
-    unlockApp();
-    showSection('goals');
+    unlockApp();          // hide login page, show app
+    showSection('goals'); // go straight to Goals tab
   }
 }
 
@@ -300,13 +304,23 @@ async function logout() {
 
   // Return user to login page
   document.getElementById('loginPage').classList.add('active');
+  document.getElementById('loginPage').classList.remove('hidden');
   document.getElementById('app').classList.add('hidden');
 }
 
 
 
 function unlockApp() {
-  document.getElementById('loginPage').classList.remove('active');
-  document.getElementById('app').classList.remove('hidden');
+  // Hide the login page
+  const loginPage = document.getElementById('loginPage');
+  loginPage.classList.remove('active');
+  loginPage.classList.add('hidden');
+
+  // Show the main app
+  const app = document.getElementById('app');
+  app.classList.remove('hidden');
+
+  // Optionally set the default section to Goals
+  showSection('goals');
 }
 
