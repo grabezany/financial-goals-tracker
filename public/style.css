@@ -37,6 +37,11 @@ main {
   transform: translateY(0);
 }
 
+/* Utility hidden class */
+.hidden {
+  display: none !important;
+}
+
 /* Goal cards */
 .goal {
   background: white;
@@ -245,8 +250,8 @@ input:checked + .slider:before {
 
 /* Bottom Navigation Bar */
 .navbar {
-  position: fixed;   /* keeps it pinned */
-  bottom: 0;         /* anchors to bottom of viewport */
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 100%;
   background: #fff;
@@ -255,9 +260,8 @@ input:checked + .slider:before {
   justify-content: space-around;
   padding: 10px 0;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
-  z-index: 100;      /* ensures it sits above content */
+  z-index: 100;
 }
-
 .navbar button {
   flex: 1;
   background: none;
@@ -298,33 +302,31 @@ body.dark .navbar button {
 body.dark .navbar button.active {
   color: #2ecc71;
 }
+
 /* Dark mode inputs */
 body.dark input[type="text"],
 body.dark input[type="number"],
 body.dark .goal-form input {
-  background: #2c2c2c;   /* dark background */
-  color: #f4f4f4;        /* light text */
-  border: 1px solid #555; /* subtle border */
+  background: #2c2c2c;
+  color: #f4f4f4;
+  border: 1px solid #555;
 }
-
 body.dark input::placeholder {
-  color: #aaa;           /* lighter placeholder text */
+  color: #aaa;
 }
 
+/* Login page */
 .login-page {
-  display: none;
+  display: none; /* hidden by default */
   height: 100vh;
   width: 100%;
   background: linear-gradient(135deg, #4CAF50, #2ecc71);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .login-page.active {
-  display: flex;
+  display: flex; /* shown when active */
 }
-
 .login-box {
   background: #fff;
   padding: 30px;
@@ -333,7 +335,6 @@ body.dark input::placeholder {
   text-align: center;
   width: 300px;
 }
-
 .login-box h2 {
   margin-bottom: 10px;
 }
@@ -361,6 +362,7 @@ body.dark input::placeholder {
   background: #45a049;
 }
 
+/* App container hidden state */
 .app.hidden {
   display: none;
 }
